@@ -8,20 +8,24 @@ class Solution(object):
                 num_map = 1
             else:
                 temp_num = float("inf")
-                for number in num_map[i]:
+                for number in num_map[i-1]:
                     if number not in checker:
-                        checker[number] = 0
+                        checker[number] = 1
                     elif number in checker:
                         checker[number] += 1
-                    if checker[number] > 0 and temp_num != number:
-                        strings += str(number) * checker[number]
+                    if temp_num != number and temp_num != float("inf"):
+                        strings += str(temp_num) * checker[temp_num]
                     temp_num = number
+                num_map[i] = int(strings)
+        return str
 
 
         """
         :type n: int
         :rtype: str
         """
+
+
 
 1 -> 1
 2 -> 11
@@ -31,6 +35,6 @@ class Solution(object):
 6 -> 312211
 
 1 = 1
-2 = 1 + 10
-3 = 10 + 11
-4 =
+temp_number = 0
+checker -> 1 = 0
+temp_number = 1
